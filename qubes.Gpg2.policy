@@ -4,5 +4,12 @@
 #
 # qubes.Gpg2 + gpg-client-vm @default allow target=gpg-server-vm
 #
-# to allow the VM named 'gpg-client-vm' use (but not export) the private keys
-# in 'gpg-server-vm'.
+# to allow the VM named 'gpg-client-vm' to use (but not export) the private
+# subkeys in 'gpg-server-vm'.
+#
+# Add line like this:
+#
+# qubes.Gpg2ExportPublicKeys + gpg-client-vm @default allow target=gpg-server-vm
+#
+# to allow the VM named 'gpg-client-vm' to obtain an export of all of the public
+# (not private!) keys in 'gpg-server-vm'.

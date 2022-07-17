@@ -118,6 +118,8 @@ split-gpg2 does not generate this key for you, so you need to generate it yourse
 If you want to generate a key in software, use the `addkey` command of `gpg2 --edit-key`.
 If you want to generate a key on a smartcard or other hardware token, use `addcardkey` instead.
 
+split-gpg2 provides the `qubes.Gpg2ExportPublicKeys` service to export public keys from the backend VM.
+
 ## Advanced usage
 
 There are a few option not described in this README.
