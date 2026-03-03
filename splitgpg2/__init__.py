@@ -569,6 +569,7 @@ class GpgServer:
     @staticmethod
     def default_options() -> Dict[bytes, Tuple[OptionHandlingType, Optional[bytes]]]:
         return {
+            b'xauthority': (OptionHandlingType.fake, b'OK'),
             b'ttyname': (OptionHandlingType.fake, b'OK'),
             b'ttytype': (OptionHandlingType.fake, b'OK'),
             b'display': (OptionHandlingType.fake, b'OK'),

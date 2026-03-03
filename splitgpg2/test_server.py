@@ -590,6 +590,17 @@ Name-Email: {}
             await writer.wait_closed()
         self.loop.run_until_complete(go())
 
+    def test_014_option_xauthority_allowed(self) -> None:
+        async def go() -> None:
+            reader, writer = await asyncio.open_unix_connection(self.socket_path)
+            self.assertEqual((await reader.readline()).rstrip(b'\n').split(b' ')[0], b'OK')
+            writer.write(b'OPTION xauthority=/run/flatpak/Xauthority\n')
+            self.assertEqual(await reader.readline(), b'OK\n')
+            writer.close()
+            await writer.wait_closed()
+        self.loop.run_until_complete(go())
+
+
 class TC_Config(TestCase):
     key_uid = 'user@localhost'
 
